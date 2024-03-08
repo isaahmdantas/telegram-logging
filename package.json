@@ -1,0 +1,42 @@
+{
+  "name": "telegram-logging",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Envio de logs para um canal no Telegram. Funciona em projetos Node.js (JavaScript ou TypeScript). Basta fornecer o tipo de log, a mensagem, o token e o chat_id.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "keywords": [
+    "telegram",
+    "logger",
+    "nodejs",
+    "npm",
+    "yarn",
+    "logging",
+    "exception",
+    "notification"
+  ],
+  "author": "Isadora Dantas",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/isaahmdantas/telegram-logging.git"
+  },
+  "bugs": {
+    "url": "https://github.com/isaahmdantas/telegram-logging/issues"
+  },
+  "homepage": "https://github.com/isaahmdantas/telegram-logging.git",
+  "dependencies": {
+    "axios": "^1.6.7",
+    "date-fns": "^3.3.1"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/date-fns": "^2.6.0",
+    "@types/node": "^20.11.25",
+    "typescript": "^5.4.2"
+  }
+}

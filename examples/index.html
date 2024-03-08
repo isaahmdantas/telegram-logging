@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Logging</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script src="../dist/index.js"></script>
+</head>
+<body>
+    <div class="container my-5">
+        <div class="p-5 text-center bg-body-tertiary rounded-3">
+            <h1 class="text-body-emphasis">Telegram Logging</h1>
+
+            <form class="needs-validation">
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <label for="type" class="form-label">Tipo</label>
+                        <select class="form-select" id="type" required="">
+                          <option value="">Selecione...</option>
+                          <option value="DEBUG">DEBUG</option>
+                          <option value="INFO">INFO</option>
+                          <option value="NOTICE">NOTICE</option>
+                          <option value="WARNING">WARNING</option>
+                          <option value="ERROR">ERROR</option>
+                          <option value="ALERT">ALERT</option>
+                          <option value="EMERGENCY">EMERGENCY</option>
+                          <option value="EMERG">EMERG</option>
+                          <option value="CRIT">CRIT</option>
+                          <option value="SUCCESS">SUCCESS</option>
+                          <option value="REQUEST">REQUEST</option>
+                          <option value="RESPONSE">RESPONSE</option>
+                          <option value="DATABASE">DATABASE</option>
+                          <option value="SECURITY">SECURITY</option>
+                          <option value="NETWORK">NETWORK</option>
+                          <option value="PERFORMANCE">PERFORMANCE</option>
+                        </select>
+                        <div class="invalid-feedback">Selecione um tipo válido</div>
+                    </div>
+                    <div class="col-md-7">
+                        <label for="message" class="form-label">Mensagem</label>
+                        <input type="text" class="form-control" id="message" placeholder="" value="" required="">
+                        <div class="invalid-feedback"> Informar a mensagem</div>
+                    </div>
+                    <div class="col-md-2" style="margin-top: 2.9rem;">
+                        <button class="btn btn-primary" type="button" onclick="sendMessage()">
+                            Enviar
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+       function sendMessage() {
+
+       }
+    </script>
+</body>
+</html>

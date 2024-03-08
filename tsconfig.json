@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+      "target": "ES2017",
+      "module": "commonjs",
+      "strict": true,
+      "declaration": true,
+      "esModuleInterop": true,
+      "outDir": "./dist", // Diretório de saída para os arquivos transpilados
+      "baseUrl": "./",
+      "paths": {
+        "*": ["node_modules/*", "src/*"]
+      }
+    },
+    "include": ["src/**/*.ts"],
+    "exclude": ["node_modules"]
+  }
+  
