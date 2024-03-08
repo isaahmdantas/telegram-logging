@@ -20,10 +20,10 @@ yarn add telegram-logging
 
 ### Uso 
 ```js
-const TelegramLogger = require('telegram-logger');
+const TelegramLogging = require('telegram-logger');
 
-// Crie uma instância do TelegramLogger com seu token, chat_id e nome do aplicativo
-const logger = new TelegramLogger('SEU_TOKEN', 'SEU_CHAT_ID', 'NOME_DO_APLICATIVO');
+// Crie uma instância do TelegramLogging com seu token, chat_id e nome do aplicativo
+const logger = new TelegramLogging('SEU_TOKEN', 'SEU_CHAT_ID', 'NOME_DO_APLICATIVO');
 
 // Envie logs usando o método sendMessage
 logger.sendMessage('INFO', 'Esta é uma mensagem de log de teste.')

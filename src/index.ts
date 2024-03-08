@@ -11,7 +11,7 @@ interface SendMessageResponse {
     data: any;
 }
 
-export class TelegramLogger {
+export class TelegramLogging {
     private token: string;
     private chatId: string;
     private app: string;

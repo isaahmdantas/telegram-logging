@@ -1,12 +1,15 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.TelegramLogger = void 0;
-const axios_1 = __importDefault(require("axios"));
-const date_fns_1 = require("date-fns");
-class TelegramLogger {
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+var axios = require('axios');
+var dateFns = require('date-fns');
+
+function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+var axios__default = /*#__PURE__*/_interopDefaultLegacy(axios);
+
+class TelegramLogging {
     constructor(token, chatId, app) {
         this.token = token;
         this.chatId = chatId;
@@ -34,14 +37,14 @@ class TelegramLogger {
         };
     }
     getDate() {
-        return (0, date_fns_1.format)(new Date(), "dd-MM-yyyy HH:mm");
+        return dateFns.format(new Date(), "dd-MM-yyyy HH:mm");
     }
     async sendMessage(type, message) {
         try {
             let icon = this.iconMap()[type];
             let date = this.getDate();
             const formattedMessage = `${icon} ${this.app}\n ${message}\n ${date}`;
-            const response = await axios_1.default.post(`https://api.telegram.org/bot${this.token}/sendMessage`, {
+            const response = await axios__default["default"].post(`https://api.telegram.org/bot${this.token}/sendMessage`, {
                 chat_id: this.chatId,
                 text: formattedMessage
             });
@@ -55,4 +58,5 @@ class TelegramLogger {
         }
     }
 }
-exports.TelegramLogger = TelegramLogger;
+
+exports.TelegramLogging = TelegramLogging;
