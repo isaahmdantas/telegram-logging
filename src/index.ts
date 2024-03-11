@@ -67,4 +67,4 @@ class TelegramLogging {
     }
 }
 
-export { TelegramLogging };
+export default TelegramLogging;

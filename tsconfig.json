@@ -5,6 +5,7 @@
       "moduleResolution": "node",
       "strict": true,
       "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
       "skipLibCheck": true,
       "outDir": "./dist",
       "baseUrl": "./",

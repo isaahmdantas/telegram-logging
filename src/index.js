@@ -59,4 +59,4 @@ class TelegramLogging {
     }
 }
 
-module.exports = { TelegramLogging };
+module.exports = TelegramLogging;

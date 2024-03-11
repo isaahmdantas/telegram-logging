@@ -1,30 +1,4 @@
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-var axios = require('axios');
-var dateFns = require('date-fns');
-
-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
-
-var axios__default = /*#__PURE__*/_interopDefaultLegacy(axios);
-
-/******************************************************************************
-Copyright (c) Microsoft Corporation.
-
-Permission to use, copy, modify, and/or distribute this software for any
-purpose with or without fee is hereby granted.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
-OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-PERFORMANCE OF THIS SOFTWARE.
-***************************************************************************** */
-
-function __awaiter(thisArg, _arguments, P, generator) {
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
@@ -32,9 +6,8 @@ function __awaiter(thisArg, _arguments, P, generator) {
         function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
-}
-
-function __generator(thisArg, body) {
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
     var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
     return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
     function verb(n) { return function (v) { return step([n, v]); }; }
@@ -60,13 +33,9 @@ function __generator(thisArg, body) {
         } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
-}
-
-typeof SuppressedError === "function" ? SuppressedError : function (error, suppressed, message) {
-    var e = new Error(message);
-    return e.name = "SuppressedError", e.error = error, e.suppressed = suppressed, e;
 };
-
+import axios from 'axios';
+import { format } from "date-fns";
 var TelegramLogging = /** @class */ (function () {
     function TelegramLogging(token, chatId, app) {
         this.token = token;
@@ -95,7 +64,7 @@ var TelegramLogging = /** @class */ (function () {
         };
     };
     TelegramLogging.prototype.getDate = function () {
-        return dateFns.format(new Date(), "dd-MM-yyyy HH:mm");
+        return format(new Date(), "dd-MM-yyyy HH:mm");
     };
     TelegramLogging.prototype.sendMessage = function (type, message) {
         return __awaiter(this, void 0, void 0, function () {
@@ -107,7 +76,7 @@ var TelegramLogging = /** @class */ (function () {
                         icon = this.iconMap()[type];
                         date = this.getDate();
                         formattedMessage = "".concat(icon, " ").concat(this.app, "\n ").concat(message, "\n ").concat(date);
-                        return [4 /*yield*/, axios__default["default"].post("https://api.telegram.org/bot".concat(this.token, "/sendMessage"), {
+                        return [4 /*yield*/, axios.post("https://api.telegram.org/bot".concat(this.token, "/sendMessage"), {
                                 chat_id: this.chatId,
                                 text: formattedMessage
                             })];
@@ -127,5 +96,4 @@ var TelegramLogging = /** @class */ (function () {
     };
     return TelegramLogging;
 }());
-
-exports.TelegramLogging = TelegramLogging;
+export default TelegramLogging;
