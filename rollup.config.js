@@ -1,53 +1,46 @@
 import commonjs from '@rollup/plugin-commonjs';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
-import typescript from 'rollup-plugin-typescript2';
+import resolve from '@rollup/plugin-node-resolve';
+import { terser } from 'rollup-plugin-terser';
+import json from '@rollup/plugin-json'; 
 
 export default [
-  // Configuração para o ambiente Node.js (CommonJS)
   {
-    input: 'src/index.ts',
+    input: 'src/index.js', 
     output: {
       file: 'dist/index.js',
       format: 'cjs',
+      sourcemap: true,
+      exports: 'auto',
     },
     plugins: [
-      nodeResolve({
-        extensions: ['.ts'],
-      }),
+      resolve(),
       commonjs(),
-      typescript(), // Adicionando o plugin TypeScript
-    ],
-    external: ['axios', 'date-fns'],
-  },
-  // Configuração para navegadores (ES module)
-  {
-    input: 'src/index.ts',
-    output: {
-      file: 'dist/index.esm.js',
-      format: 'esm',
-    },
-    plugins: [
-      nodeResolve({
-        extensions: ['.ts'],
-      }),
-      commonjs(),
-      typescript(), // Adicionando o plugin TypeScript
+      json()
     ],
   },
   {
-    input: 'src/index.ts',
+    input: 'src/index.js', 
     output: {
-      file: 'dist/index.umd.js',
+      file: 'dist/index.min.js',
+      format: 'cjs',
+      sourcemap: true,
+      exports: 'auto',
+    },
+    plugins: [
+      resolve(),
+      commonjs(),
+      terser(),
+      json()
+    ],
+  },
+  {
+    input: 'src/index.js',
+    output: {
+      file: 'examples/bundle.js',
       format: 'umd',
       name: 'TelegramLogging',
+      sourcemap: true,
     },
-    plugins: [
-      nodeResolve({
-        extensions: ['.ts'],
-      }),
-      commonjs(),
-      typescript(), // Adicionando o plugin TypeScript
-    ],
-    external: ['axios', 'date-fns'],
-  },
+    plugins: [],
+  }
 ];
