@@ -19,8 +19,11 @@ yarn add telegram-logging
 ```
 
 ### Uso 
+
+#### Javascript
+
 ```js
-const TelegramLogging = require('telegram-logger');
+const TelegramLogging = require('telegram-logging');
 
 // Crie uma instância do TelegramLogging com seu token, chat_id e nome do aplicativo
 const logger = new TelegramLogging('SEU_TOKEN', 'SEU_CHAT_ID', 'NOME_DO_APLICATIVO');
@@ -29,9 +32,18 @@ const logger = new TelegramLogging('SEU_TOKEN', 'SEU_CHAT_ID', 'NOME_DO_APLICATI
 logger.sendMessage('INFO', 'Esta é uma mensagem de log de teste.')
   .then(response => console.log('Log enviado com sucesso!', response))
   .catch(error => console.error('Erro ao enviar log:', error));
+```
 
-// ou 
-await logger.sendMessage('INFO', 'Esta é uma mensagem de log de teste.');
+#### Typescript
+
+```ts
+import { TelegramLogging } from 'telegram-logging';
+
+// Crie uma instância do TelegramLogging com seu token, chat_id e nome do aplicativo
+const telegramLoggin = new TelegramLogging('SEU_TOKEN', 'SEU_CHAT_ID', 'NOME_DO_APLICATIVO');
+
+// Envie logs usando o método sendMessage
+const response = await telegramLoggin.sendMessage('INFO', 'Esta é uma mensagem de log de teste.');
 ```
 
 ### Configuração

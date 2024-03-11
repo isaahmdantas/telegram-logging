@@ -2,7 +2,7 @@ const { TelegramLogging } = require('./index');
 
 describe('TelegramLoggin', () => {
     // Criar uma instância da classe para ser usada nos testes 
-    const telegramLoggin = new TelegramLogging('your-token', 'your-chat-id', 'your-app-name');
+    const telegramLoggin = new TelegramLogging('6769730222:AAHz-HQ294fIYYtpQ4U1RM496QG8CYT7OV8', '-1002015574076', 'toten-rb');
 
     // Verificar se o método sendMessage envia uma mensagem
     it('sendMessage should send a message', async () => {

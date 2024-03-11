@@ -1,15 +1,23 @@
-const axios = require('axios');
-const { format } = require('date-fns');
 
+import axios from 'axios';
+import { format } from "date-fns";
+
+import { IconMap } from 'icon';
+import { SendMessageResponse } from 'message';
 
 class TelegramLogging {
-    constructor(token, chatId, app) {
+    private token: string;
+    private chatId: string;
+    private app: string;
+
+    constructor(token: string, chatId: string, app: 
+        string) {
         this.token = token;
         this.chatId = chatId;
         this.app = app;
     }
 
-   iconMap() {
+    private iconMap(): IconMap {
         return {
             DEBUG       : '🚧',
             INFO        : '💬',
@@ -31,12 +39,12 @@ class TelegramLogging {
         };
     }
 
-    getDate() {
+    private getDate(): string {
         return format(new Date(), "dd-MM-yyyy HH:mm")
     }
     
 
-    async sendMessage(type, message) {
+    async sendMessage(type: keyof IconMap, message: string): Promise<SendMessageResponse> {
         try {
             let icon = this.iconMap()[type];
             let date = this.getDate();
@@ -53,10 +61,10 @@ class TelegramLogging {
             }
 
             return response.data;
-        } catch (error) {
+        } catch (error: any) {
             throw new Error(`Falha ao enviar o log: ${error.message}`);
         }
     }
 }
 
-module.exports = { TelegramLogging };
+export { TelegramLogging };

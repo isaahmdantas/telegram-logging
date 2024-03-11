@@ -1,46 +1,18 @@
+import typescript from 'rollup-plugin-typescript2';
+// import { terser } from 'rollup-plugin-terser';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
-import { terser } from 'rollup-plugin-terser';
-import json from '@rollup/plugin-json'; 
 
-export default [
-  {
-    input: 'src/index.js', 
-    output: {
-      file: 'dist/index.js',
-      format: 'cjs',
-      sourcemap: true,
-      exports: 'auto',
-    },
-    plugins: [
-      resolve(),
-      commonjs(),
-      json()
-    ],
+export default {
+  input: 'src/index.ts',
+  output: {
+    file: 'dist/index.js',
+    format: 'cjs', // CommonJS
   },
-  {
-    input: 'src/index.js', 
-    output: {
-      file: 'dist/index.min.js',
-      format: 'cjs',
-      sourcemap: true,
-      exports: 'auto',
-    },
-    plugins: [
-      resolve(),
-      commonjs(),
-      terser(),
-      json()
-    ],
-  },
-  {
-    input: 'src/index.js',
-    output: {
-      file: 'examples/bundle.js',
-      format: 'umd',
-      name: 'TelegramLogging',
-      sourcemap: true,
-    },
-    plugins: [],
-  }
-];
+  plugins: [
+    resolve(), // Resolve dependências externas
+    commonjs(), // Converte módulos CommonJS para ES6
+    typescript(), // Compila arquivos TypeScript
+  ],
+  external: ['axios', 'date-fns'], // Excluir dependências externas da bundling
+};

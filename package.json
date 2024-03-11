@@ -4,6 +4,7 @@
   "version": "1.0.1",
   "description": "Envio de logs para um canal no Telegram. Funciona em projetos Node.js . Basta fornecer o tipo de log, a mensagem, o token e o chat_id.",
   "main": "dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "test": "jest",
     "build": "rollup -c rollup.config.js"
@@ -34,10 +35,7 @@
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
-    "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "@types/axios": "^0.14.0",
-    "@types/date-fns": "^2.6.0",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.11.25",
     "eslint": "^8.57.0",
